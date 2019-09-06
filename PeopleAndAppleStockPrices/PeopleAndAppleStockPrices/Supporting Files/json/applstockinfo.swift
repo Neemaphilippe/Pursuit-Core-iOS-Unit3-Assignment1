@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct AppData : Codable {
     let date: String
@@ -22,4 +23,8 @@ struct AppData : Codable {
             throw error
         }
     }
+}
+public struct GetImages {
+    let goodImage: UIImage = (UIImage(named: "thumbsUp")!)
+    let badImage: UIImage = (UIImage(named: "thumbsDown")!)
 }

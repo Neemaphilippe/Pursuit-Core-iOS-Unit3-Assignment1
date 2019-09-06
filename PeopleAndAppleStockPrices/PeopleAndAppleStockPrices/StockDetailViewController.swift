@@ -11,6 +11,8 @@ import UIKit
 class StockDetailViewController: UIViewController {
 
     var stockSelected : AppData!
+    var accessImage : GetImages!
+    
     
     @IBOutlet weak var stockImage: UIImageView!
     
@@ -24,14 +26,24 @@ class StockDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpStockUI()
+        setUpImages()
+        
 
     }
     
     func setUpStockUI() {
         dateLabel.text = stockSelected.date
-        openLabel.text = String(stockSelected.open)
-        closeLabel.text = String(stockSelected.close)
+        openLabel.text =
+            String(stockSelected.open)
+        closeLabel.text =  String(stockSelected.close)
     }
-   
-
+    func setUpImages() {
+        if stockSelected.open > stockSelected.close {
+            stockImage.image = UIImage(named: "thumbsUp")
+        }else {
+            stockImage.image = UIImage(named: "thumbsDown")
+        }
+    
+}
+            
 }
