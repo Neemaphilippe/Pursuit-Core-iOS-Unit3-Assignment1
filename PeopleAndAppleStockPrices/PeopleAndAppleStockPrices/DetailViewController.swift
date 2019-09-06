@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         setUpImage()
         setUpUI()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     func setUpUI(){

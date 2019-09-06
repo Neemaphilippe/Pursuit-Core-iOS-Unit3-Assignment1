@@ -40,13 +40,13 @@ private func loadData(){
         }
     
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let indexPath = stockTableView.indexPathForSelectedRow,
-//            let destination = segue.destination as? DetailViewController else {return}
-//
-//        var stockToSendOver = stockData[indexPath.row]
-////        destination.stock = stockToSendOver
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = stockTableView.indexPathForSelectedRow,
+            let destination = segue.destination as? StockDetailViewController else {return}
+
+        var stockToSendOver = stockData[indexPath.row]
+        destination.stockSelected = stockToSendOver
+    }
 
 
 }

@@ -23,11 +23,15 @@ class StockDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpStockUI()
 
     }
     
-
+    func setUpStockUI() {
+        dateLabel.text = stockSelected.date
+        openLabel.text = String(stockSelected.open)
+        closeLabel.text = String(stockSelected.close)
+    }
    
 
 }
