@@ -10,8 +10,8 @@ import Foundation
 
 struct AppData : Codable {
     let date: String
-    let open: String
-    let close: String
+    let open: Double
+    let close: Double
     
     static func getAppData(data: Data) throws -> [AppData] {
         do {
