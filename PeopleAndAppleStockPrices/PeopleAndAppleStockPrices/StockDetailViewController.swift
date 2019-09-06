@@ -27,23 +27,34 @@ class StockDetailViewController: UIViewController {
         super.viewDidLoad()
         setUpStockUI()
         setUpImages()
+        setBackgroundColor()
         
 
     }
     
     func setUpStockUI() {
-        dateLabel.text = stockSelected.date
-        openLabel.text =
-            String(stockSelected.open)
-        closeLabel.text =  String(stockSelected.close)
+        dateLabel.text = "Date: \(stockSelected.date)"
+        openLabel.text = "Open: \(stockSelected.open)"
+//            String(stockSelected.open)
+        closeLabel.text =  "Close: \(stockSelected.close)"
     }
     func setUpImages() {
         if stockSelected.open > stockSelected.close {
             stockImage.image = UIImage(named: "thumbsUp")
+            
         }else {
             stockImage.image = UIImage(named: "thumbsDown")
         }
     
 }
+    func setBackgroundColor(){
+        if stockImage.image == UIImage(named:"thumbsUp"){
+           self.view.backgroundColor = UIColor.green
+        }else{
+            if stockImage.image == UIImage(named:"thumbsDown"){
+               self.view.backgroundColor = UIColor.red
+        }
+    }
             
+}
 }
