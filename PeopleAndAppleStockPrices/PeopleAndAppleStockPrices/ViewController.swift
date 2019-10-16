@@ -35,7 +35,8 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         setProtocols()
-        getData()
+//        getData()
+        loadDataFromJSON()
        
     
         
@@ -45,6 +46,19 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 self.userInfoData.reloadData()
             }
+        }
+    }
+    
+    func loadDataFromJSON(){
+        let path = Bundle.main.path(forResource: "userinfo", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+       
+        do {
+           let data = try Data(contentsOf: url)
+          let people = try UserInfoData.getUserInfo(data: data)
+            self.singleUser = people
+        }catch{
+            print(error)
         }
     }
 
@@ -116,9 +130,9 @@ class ViewController: UIViewController {
 //                let picturesPassed = pictures[indexPath.row]
                 
               var dataToSet = singleUser[indexPath.row]
-         cell.textLabel?.text = "\(userInfo.name.first.capitalized) \(userInfo.name.last.capitalized)"
+         cell.textLabel?.text = "\(dataToSet.name.first.capitalized) \(dataToSet.name.last.capitalized)"
           
-                cell.detailTextLabel?.text = "\(userInfo.location.street.capitalized) \(userInfo.location.city.capitalized) \(userInfo.location.state.capitalized)"
+                cell.detailTextLabel?.text = "\(userInfo.location!.street!.capitalized) \(userInfo.location!.city!.capitalized) \(userInfo.location!.state!.capitalized)"
                 return cell
             }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

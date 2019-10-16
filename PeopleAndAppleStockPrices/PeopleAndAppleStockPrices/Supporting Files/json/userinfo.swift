@@ -28,7 +28,7 @@ struct UserInfoData : Codable {
 
 struct PeopleInfo : Codable {
     let name : NameData
-    let location : LocationData
+    let location : LocationData?
     let picture : PictureData
     let email: String
 }
@@ -47,9 +47,9 @@ struct NameData : Codable {
 }
 
 struct LocationData : Codable {
-    let street : String
-    let city : String
-    let state : String
+    let street : String?
+    let city : String?
+    let state : String?
 }
 struct PictureData: Codable {
     let large : String

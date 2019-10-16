@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     func setUpUI(){
         nameLabel.text = "\(pictureSelected.name.fullname.capitalized)"
         emailLabel.text = pictureSelected.email.capitalized
-        locationLabel.text = "\(pictureSelected.location.city.capitalized)\(pictureSelected.location.state.capitalized)"
+        locationLabel.text = "\(pictureSelected.location!.city!.capitalized) , \(pictureSelected.location!.state!.capitalized)"
     }
     
     func setUpImage() {
